@@ -11,21 +11,6 @@ from datetime import datetime,date
 import datetime
 random.seed(int(time.time()))
 
-
-"""
-prpr - prpr一下谁呢
-class_schedule - 获取当日课表
-have_lunch - 今天中午吃点啥
-have_dessert - 今天中午吃啥点心
-todays_fortune - 今日的上课运程
-random_choose - 选择困难症的福音
-gaokao_countdown - 小熊的高考倒计时
-network_usage - 查看网络使用流量
-network_speedtest - 服务器测速
-help - 查看帮助
-"""
-
-
 bot = telebot.TeleBot(TOKEN)
 
 
@@ -33,12 +18,6 @@ bot = telebot.TeleBot(TOKEN)
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
 	bot.reply_to(message, "这是一个 @LittleBear0729 写的私人bot.（尚未完成）")
-
-
-#echo
-#@bot.message_handler(func=lambda m: True)
-#def echo_all(message):
-#	bot.reply_to(message, message.text)
 
 
 #prpr
@@ -111,22 +90,5 @@ def gaokao_countdown(message):
 	dif_seconds = (gaokao_time - current_time).total_seconds()
 	dif_days = int(dif_seconds//86400)
 	bot.reply_to(message, "距离小熊2020年高考还有" + str(dif_days) + "天！")
-
-"""
-#network_usage
-@bot.message_handler(commands=['network_usage'])
-def network_usage(message):
-	os.system('rm vnstat.log')
-	os.system('vnstat -d > vnstat.log')
-	with open('/root/telegrambot/vnstat.log', 'r') as vnstat_log_file:
-		bot.reply_to(message, vnstat_log_file.read())
-
-
-#network_speedtest
-@bot.message_handler(commands=['network_speedtest'])
-def network_speedtest(message):
-	with open('/home/wwwroot/default/build/file/SpeedTestResult.txt', 'r') as speedtest_result_file:
-		bot.reply_to(message, speedtest_result_file.read())
-"""
 
 bot.polling()
