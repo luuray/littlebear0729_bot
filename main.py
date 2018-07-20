@@ -85,7 +85,7 @@ def todays_fortune(message):
 #gaokao_countdown
 @bot.message_handler(commands=['gaokao_countdown'])
 def gaokao_countdown(message):
-	gaokao_time = datetime.datetime(2020,6,7,8,0,0)
+	gaokao_time = datetime.datetime(2020,6,7,0,0,0)
 	current_time = datetime.datetime.now() + 28800
 	dif_seconds = (gaokao_time - current_time).total_seconds()
 	dif_days = int(dif_seconds//86400)
