@@ -5,13 +5,14 @@ import sys
 import os
 import random
 sys.path.append("/usr/local/python3.6/lib/python3.6/site-packages")
+sys.path.append("/usr/local/lib/python3.5/dist-packages")
 import telebot
 import time
 from datetime import datetime,date
 import datetime
 random.seed(int(time.time()))
 
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot("REPLACE YOUR TOKEN HERE")
 
 
 # welcome
@@ -90,5 +91,16 @@ def gaokao_countdown(message):
 	dif_seconds = (gaokao_time - current_time).total_seconds()
 	dif_days = int(dif_seconds//86400)
 	bot.reply_to(message, "距离小熊2020年高考还有" + str(dif_days) + "天！")
+
+
+#random_choose
+@bot.message_handler(commands=['random_choose'])
+def random_choose(message):
+	element = message.text.split()
+	if len(element) == 1:
+		bot.reply_to(message, "请在/random_choose后输入你想要随机获得的元素，用空格分开。例如：/random_choose 1 2")
+	else:
+		randNum = random.randint(1, len(element)-1)
+		bot.reply_to(message, element[randNum])
 
 bot.polling()

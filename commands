@@ -3,6 +3,6 @@ class_schedule - 获取当日课表
 have_lunch - 今天中午吃点啥
 have_dessert - 今天中午吃啥点心
 todays_fortune - 今日的上课运程
-random_choose - 选择困难症的福音(not yet finished)
+random_choose - 选择困难症的福音
 gaokao_countdown - 小熊的高考倒计时
 help - 查看帮助
