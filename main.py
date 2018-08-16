@@ -94,7 +94,7 @@ def gaokao_countdown(message):
 
 
 #random_choose
-@bot.message_handler(commands=['random_choose'])
+@bot.message_handler(commands=['random'])
 def random_choose(message):
 	element = message.text.split()
 	if len(element) == 1:
