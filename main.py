@@ -98,7 +98,7 @@ def gaokao_countdown(message):
 def random_choose(message):
 	element = message.text.split()
 	if len(element) == 1:
-		bot.reply_to(message, "请在/random_choose后输入你想要随机获得的元素，用空格分开。例如：/random_choose 1 2")
+		bot.reply_to(message, "请在/random后输入你想要随机获得的元素，用空格分开。例如：/random 1 2")
 	else:
 		randNum = random.randint(1, len(element)-1)
 		bot.reply_to(message, element[randNum])
