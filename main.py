@@ -146,4 +146,4 @@ def timer_set(message):
 		time.sleep(300)
 		bot.send_message(message.chat.id, "5分钟到了！")
 
-bot.polling()
+bot.polling(none_stop=True)
