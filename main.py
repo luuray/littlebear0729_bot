@@ -14,7 +14,13 @@ from telebot import types
 
 random.seed(int(time.time()))
 
-bot = telebot.TeleBot("REPLACE YOUR TOKEN HERE")
+
+with open('./config.json', 'r+') as config_file:
+    config = json.load(config_file)
+    print('Config file load successfully:\n' + str(config))
+    bot_token = config['bot_token']
+
+bot = telebot.TeleBot(bot_token)
 
 
 # welcome
